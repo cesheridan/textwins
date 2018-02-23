@@ -409,7 +409,7 @@ _These enhance textwins.vim_:
   https://raw.githubusercontent.com/cesheridan/streamline.vim/master/README.md
 
 # DISTRIBUTION
-* http://www.vim.org/scripts/script.php?script_id=4767
+* https://vim.sourceforge.io/scripts/script.php?script_id=5661
 
 # DOCUMENTATION
 Documentation is at the below URL, and is not packaged with plugin code.
