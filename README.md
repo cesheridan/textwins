@@ -412,7 +412,7 @@ _These enhance textwins.vim_:
 * https://vim.sourceforge.io/scripts/script.php?script_id=5661
 
 # DOCUMENTATION
-Documentation is at the below URL, and is not packaged with plugin code.
+* https://raw.githubusercontent.com/cesheridan/textwins.vim/master/README.md
 
 # DEPLOYMENT
 * This plugin, in its default configuration, has no dependencies on other plugins and should load for any established Vim package manager, provided the package manager does not require special hooks in plugin code.  
