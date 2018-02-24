@@ -1,4 +1,4 @@
-_A text space that encompasses terminal & editing windows_ / Charles Sheridan
+_Windows that text_ / Charles Sheridan
 
 
 # _textwins.vim_
