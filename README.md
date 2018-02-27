@@ -274,7 +274,7 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 * **Texting maps** generally follow the pattern
 
     1. t:Text 
-    1. x:content-type, e.g. f:Filepath
+    1. {}:text-type, e.g. f:Filepath
     1. r:Reference
     1. {t,e,s,r} for receiving {Termwin,Editwin,Sendwin,Recvwin} 
 
@@ -283,8 +283,8 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 
 * **Cardinality conflicts** resolve with the larger scope being in caps -- e.g. `qtt` quits the current termwin, while `qTt` quits all current-tab termwins, and `qTT` quits the entire TAB
 * When 2 different Ex Line commands imply the same map name, the more commonly-used map has priority in getting a map name that is relatively more "intuitive" 
-* For wintype creation, mnemonics follows the Vim convention of referencing window/buffer
-* For wintype exits, mnemonics follows the Vim convention of not naming the window 
+* For wintype creation, mnemonics follows Vim convention of referencing window/buffer
+* For wintype exits, mnemonics follows Vim convention of not naming the window 
 
 # **3 WAYS TO SELECT REFERENCE WINTYPES** 
 
@@ -303,7 +303,7 @@ Auto-selection is a configurable default selection type.
 
 Thus for example the developer can select a reference editwin and then move across BOTH editwins and termwins, while texting from any of these back to the same reference editwin.
 
-To _effect locked selection_, run the relevant command(s) below, where the **{N}** count prefix is relevant window# or id: 
+To _effect locked selection_, run the relevant command(s) below, where the **[N]** count prefix is relevant window# or id: 
 
     :2RefTermwinLock
 
