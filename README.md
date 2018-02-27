@@ -99,7 +99,7 @@ These **complete execution in the new termwin.**
 |  |:TermwinCreate**ImmediatelyBelow**  |tc**ib**  |  [same] |
 |  |:TermwinCreate**Bottom**            |tc**b**  |    [same]|
 
-**Overridable defaults** in termwin creation are listed in 'GLOBAL VARS' further below.  On a per-command basis, these can be overridden via 'args_hash' in calls to function **Wintype_create(args_hash)**,  invoked from all termwin create commands. 
+**Overridable defaults** in termwin creation are listed in 'GLOBAL VARS' further below.  On a per-command basis, these can be overridden via 'rcvd_hash' in calls to function **Wintype_create(count_prefix, rcvd_hash)**,  invoked from all termwin create commands. 
 
 Note that if a session creates a large number of Vim terminals, approximately 60 or more, new Vim terminals might not be functional -- there seems to be a limit to the number of open terminals that Vim8 supports.
 
@@ -117,7 +117,7 @@ Commands that text to a reference window or window specified by its number or id
 
 Texting adds carriage returns only when a text is intended as an executable command sent to a termwin, e.g. `ll` of a file.
 
-**Overridable defaults** in termwin creation are listed in 'GLOBAL VARS' further below.  On a per-command basis, these can be overridden via 'args_hash' in calls to function **Texter(args_hash)**,  invoked from all texting commands.
+**Overridable defaults** in termwin creation are listed in 'GLOBAL VARS' further below.  On a per-command basis, these can be overridden via 'rcvd_hash' in calls to function **Texter(count_prefix, rcvd_hash)**,  invoked from all texting commands.
 
 #### [N] Args & Receiver Windows
 The optional [N] args below are Vim count prefixes.  In _textwins.vim_,  they **specify windows**, via either window #s within a tab, or window ids, which cross tabs.
@@ -412,6 +412,7 @@ _These enhance textwins.vim_:
 * https://vim.sourceforge.io/scripts/script.php?script_id=5661
 
 # DOCUMENTATION
+At the below URL, and not packaged with plugin code.
 * https://raw.githubusercontent.com/cesheridan/textwins.vim/master/README.md
 
 # DEPLOYMENT
