@@ -1,0 +1,5 @@
+*textwins.txt* Windows that text
+
+Documentation: *https://raw.githubusercontent.com/cesheridan/textwins.vim/master/README.md*
+       Author: Charles Sheridan
+      Contact: opensource at att.net
