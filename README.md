@@ -410,13 +410,13 @@ _These enhance textwins.vim_:
 
 # DISTRIBUTION
 * https://vim.sourceforge.io/scripts/script.php?script_id=5661
+* Includes release history 
 
 # DOCUMENTATION
-At the below URL, and not packaged with plugin code.
 * https://raw.githubusercontent.com/cesheridan/textwins.vim/master/README.md
 
 # DEPLOYMENT
-* This plugin, in its default configuration, has no dependencies on other plugins and should load for any established Vim package manager, provided the package manager does not require special hooks in plugin code.  
+The .tgz decompresses to ./plugin & ./doc dirs compatatible with established Vim package managers. 
 
 # LICENSE 
 License: GPL (Gnu Public License) version 3
