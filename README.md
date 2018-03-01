@@ -12,7 +12,7 @@ _Windows that text_ / Charles Sheridan
           Windows TEXT Themselves  
         Terminals TEXT Themselves
 
-[3termwins]: ./doc/gif/3termwins_text_editwin.gif?raw=true  "3termwins"
+[3termwins]: ./doc_graphics/gif/3termwins_text_editwin.gif?raw=true  "3termwins"
 ![alt text][3termwins]
 
 
@@ -222,7 +222,7 @@ _SEE: [N] & AUTOCREATION documentation, further above_
 
 ## Queries on Reference Windows & Globals
 
-[queries]: ./doc/gif/queries.gif?raw=true  "queries"
+[queries]: ./doc_graphics/gif/queries.gif?raw=true  "queries"
 ![alt text][queries]
 
 Summary commands for **a 'read' on reference window state** in the current tab.
