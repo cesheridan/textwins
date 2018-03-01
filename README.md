@@ -416,7 +416,7 @@ _These enhance textwins.vim_:
 * https://raw.githubusercontent.com/cesheridan/textwins.vim/master/README.md
 
 # DEPLOYMENT
-The .tgz decompresses to ./plugin & ./doc dirs compatatible with established Vim package managers. 
+The .tgz decompresses to ./plugin & ./doc dirs compatible with established Vim package managers. 
 
 # LICENSE 
 License: GPL (Gnu Public License) version 3
