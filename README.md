@@ -338,7 +338,7 @@ There is also a 4TH WAY to select a reference wintype: move to another wintype w
 # [N], Faster Window ID, & the Statusline
 When using [N]-identification, rather than contextual identification from reference windows, the faster that a developer can identify windows within a multi-window tab, the faster the initation of texting, or _go_, to a window.
 
-As a number in a sequence from 1 to the last window in a tab, [N] is an absolute identification, unlike Vim's relative window identifiers jkl;, etc.  The developer needs to quickly know the number of each window in a tab.  _But in a complex window structure, Vim window numbering may be non-intuitive._
+As a number in a sequence from 1 to the last window in a tab, [N] is an absolute identification, unlike Vim's relative window identifiers hjkl, etc.  The developer needs to quickly know the number of each window in a tab.  _But in a complex window structure, Vim window numbering may be non-intuitive._
 
 To make [N]-identification faster, the most direct way is to locate every window's number in the same prominent location, e.g. in the bottom left of every window. That is the convention in _**streamline.vim**, recommended as a statusline for textwins.vim_, and visible in the demos on this page.
 
@@ -388,7 +388,7 @@ A REFERENCE WINDOW is any of these 4 kinds of windows -- i.e. a reference termwi
 
 Reference windows scope to their local tabs -- **each tab in a Vim session has its own reference windows**, e.g. a reference editwin in tab 2 has no visibility to potential reference editwins in tab 4 of the same Vim session.
 
-# _textwins.vim_ & Vim
+#### _textwins.vim_ & Vim
 
 _This plugin:_
 * Requires Vim8, the first Vim release with terminals & timers
@@ -396,7 +396,7 @@ _This plugin:_
 * Runs a timer to check window state
 * Neither writes to Vim global vars nor changes Vim configurations
 
-# RELATED PLUGINS
+#### RELATED PLUGINS
 _These enhance textwins.vim_:
 
 * _**txtmux.vim** ( tabwins x textwins ) multiplexer_
@@ -408,17 +408,17 @@ _These enhance textwins.vim_:
 * _**streamline.vim** Essential wares, for getting there_
   https://raw.githubusercontent.com/cesheridan/streamline.vim/master/README.md
 
-# DISTRIBUTION
+#### DISTRIBUTION
 * https://vim.sourceforge.io/scripts/script.php?script_id=5661
 * Includes release history 
 
-# DOCUMENTATION
+#### DOCUMENTATION
 * https://raw.githubusercontent.com/cesheridan/textwins.vim/master/README.md
 
-# DEPLOYMENT
+#### DEPLOYMENT
 The .tgz decompresses to ./plugin & ./doc dirs compatible with established Vim package managers. 
 
-# LICENSE 
+#### LICENSE 
 License: GPL (Gnu Public License) version 3
 Copyright (c) 2018 Charles E. Sheridan
 
