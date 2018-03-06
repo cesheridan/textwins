@@ -229,9 +229,12 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 
 | :Ex Command |  nmap  |  Description |
 | :--- |  :--- | --- | --- | --- |
-| :RefWindows**Summary** | rw**s**   |Win#-Buf#-Wid Data for each refwin, in 1 line, **output to Ex Line** | 
-| :RefWindows**SummaryLines** | rw**sl**   |Win#-Buf#-Wid Data for each refwin, in 4 lines, **output to Ex Line** | 
-| :RefWindows**SummaryShort** | rw**ss**   |Win# of each refwin in concise form, **output to Ex Line.  {t,e,s,r}:{Termwin,Editwin,Sendwin,Recvwin}**.  Prints **'0' for undefined refwins**.  _Recommended **for titlestring**, but not for statusline_, via call to Ref_windows_summary_short().| 
+| :RefWindows**Summary** | tw**s**   |Win#-Buf#-Wid Data for each refwin, in 1 line, **output to Ex Line** | 
+||<strike>rws</strike>| rws renamed to tws in rel 1.1.0 | 
+| :RefWindows**SummaryLines** | tw**sl**   |Win#-Buf#-Wid Data for each refwin, in 4 lines, **output to Ex Line** | 
+||<strike>rwsl</strike>| rwsl renamed to twsl in rel 1.1.0 | 
+| :RefWindows**SummaryShort** | tw**ss**   |Win# of each refwin in concise form, **output to Ex Line.  {t,e,s,r}:{Termwin,Editwin,Sendwin,Recvwin}**.  Prints **'0' for undefined refwins**.  _Recommended **for titlestring**, but not for statusline_, via call to Ref_windows_summary_short().| 
+||<strike>rwsl</strike>| rwss renamed to twss in rel 1.1.0 | 
 | **:TextwinsGlobals** | twg   |**Global vars** in a new window at bottom of tab | 
 
 ## Reference Wintype Selection
@@ -241,10 +244,14 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 
 | FORM| :Ex Command  |  nmap | Description |
 | :--- |  :--- | --- | --- | --- |
-|**:{N}Ref{....}winLock**| :{N}Ref**Term**winLock |[N]l**tt**| **Lock**-select window# or id 'N' as the reference **termwin**, default to current window when 'N' not specified| 
-|| :{N}Ref**Edit**winLock |[N]l**ee**|   **Lock**-select window# or id 'N' as the reference **editwin**, default to current window when 'N' not specified|   
-|**:Ref{....}winSelectPerAutoSelect** | :Ref**Term**winSelectPerAutoSelect |as**t**| Turn on **Auto-Selection** for **termwins** |  
-|| :Ref**Edit**winSelectPerAutoSelect  |as**e**|  Turn on **Auto-Selection** for **editwins**  | 
+|**:{N}Ref{....}winLock**| :{N}Ref**Term**winLock |[N]**T**ls| **Term**win: **L**ock-**S**elect window# or id 'N' as the reference termwin, default to current window when 'N' not specified| 
+|||<strike>[N]ltt</strike>| ltt renamed to Tls in rel 1.1.0 | 
+|| :{N}Ref**Edit**winLock |[N]**E**ls|   **Edit**win: **L**ock-**S**elect window# or id 'N' as the reference editwin, default to current window when 'N' not specified|   
+|||<strike>[N]lee</strike>| lee renamed to Els in rel 1.1.0 | 
+|**:Ref{....}winSelectPerAutoSelect** | :Ref**Term**winSelectPerAutoSelect |**T**as| **Term**wins: Turn on **A**uto-**S**election |  
+|||<strike>[N]ast</strike>| ast renamed to Tas in rel 1.1.0 | 
+|| :Ref**Edit**winSelectPerAutoSelect  |**E**as|  **Edit**wins: Turn on **A**uto-**S**election | 
+|||<strike>[N]ase</strike>| ase renamed to Eas in rel 1.1.0 | 
 
 
 ## Termwin Control 
@@ -265,12 +272,14 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 | FORM | :Ex Command |  nmap  |  Description | 
 | :--- |  :--- | --- | --- | --- |
 | **:[N]Quit{...}{....}win{}** |:[N]Quit**RefTerm**win  |[N]q**tt**  |   **:quit!** reference termwin, or the one specified in N, a window# or id | 
-| **:[N]Text{}2RefTermwin** |:[N]Text**KillJob**2RefTermwin  |**ktj**  |   **Kill terminal Job**|
+| **:[N]Text{}2RefTermwin** |:[N]Text**KillJob**2RefTermwin  |**Ktj**  |   **Kill terminal Job**|
+|||<strike>ktj</strike>| ktj renamed to Ktj in rel 1.1.0 | 
 
 
 # MNEMONICS
 * **maps** have 3-4 character acronyms on the associated Ex command names. 
 * **Leaders** are not used, on the premiss that 3 strictly AZ/09 alphanumeric non-special chars should not trample over existing maps.  In cases where the core of an Ex command name is 2 words, the map adds a 3rd character which, for simpler fingernomics, duplicates the 2nd character.   
+* The **first character of maps** should not overlap the most commonly-used Vim map commands that have single-character names _-- thus the map-name changes in rel 1.1.0._
 * **Texting maps** generally follow the pattern
 
     1. t:Text 
@@ -282,9 +291,9 @@ Summary commands for **a 'read' on reference window state** in the current tab.
   * When the receiving window can only be a termwin, the window identifier at the end is omitted, e.g. `tll`
 
 * **Cardinality conflicts** resolve with the larger scope being in caps -- e.g. `qtt` quits the current termwin, while `qTt` quits all current-tab termwins, and `qTT` quits the entire TAB
-* When 2 different Ex Line commands imply the same map name, the more commonly-used map has priority in getting a map name that is relatively more "intuitive" 
-* For wintype creation, mnemonics follows Vim convention of referencing window/buffer
-* For wintype exits, mnemonics follows Vim convention of not naming the window 
+* When 2 different Ex Line commands **imply the same map name**, the more commonly-used map has priority in getting a map name that is relatively more "intuitive" 
+* For **wintype creation**, Ex Line mnemonics follow Vim convention of referencing window/buffer
+* For **wintype exits**, Ex Line mnemonics follow Vim convention of not naming the window 
 
 # **3 WAYS TO SELECT REFERENCE WINTYPES** 
 

@@ -13,8 +13,8 @@
 " ==============================================================================
 let g:textwins_version                             = '1.1.0'
 
-if  !exists("g:impl_textwins_is_in_dev_mode")
-   let       g:impl_textwins_is_in_dev_mode        = 'N'
+if  !exists("s:impl_textwins_is_in_dev_mode")
+   let       s:impl_textwins_is_in_dev_mode        = 'N'
 endif
 
 if  !exists("g:textwins_reload_is_permitted")
@@ -23,7 +23,7 @@ endif
 
 if          (g:textwins_reload_is_permitted       == 'N') 
 \ && exists("g:impl_textwins_is_loaded") 
-\ &&        (g:impl_textwins_is_in_dev_mode       == 'N')
+\ &&        (s:impl_textwins_is_in_dev_mode       == 'N')
   echomsg 
  \ 'textwins.vim: EXITING from :source command, re-load not permitted.  '   .
  \ 'To enable re-load, set g:textwins_reload_is_permitted to "Y".'  
@@ -79,7 +79,7 @@ endif
 if !exists("s:ref_editwin")
          call Ref_editwin_init()
 endif
-"  MNEMONICS: editwin: a Window that's a Non-Termwin
+"  MNEMONICS: editwin: a modifiable Window that's not a termwin
 
 " --- textwins_REF_EDITWINS_BY_TAB_NUMBER
 if !exists("s:REF_EDITWINS_BY_TAB_NUMBER")
@@ -1963,12 +1963,14 @@ noremap <silent> tcb  :TermwinCreateBottom<CR>
 command! -count=0      RefTermwinLock :call                Select_ref_termwin_per_lock({
 \ 'window_identifier_from_count_prefix' : <count>
 \})
-nnoremap <silent> ltt :<C-U> call                          Select_ref_termwin_per_lock({
+nnoremap <silent> Tls :<C-U> call                          Select_ref_termwin_per_lock({
 \ 'window_identifier_from_count_prefix' : v:count
 \})<CR>
+" MNEMONICS: T:termwin in caps to avoid Vim `t` cmd, ls:Lock-Select 
 
 command!               RefTermwinSelectPerAutoSelect :call Select_ref_termwin_per_auto_selection() 
-noremap <silent>  ast :RefTermwinSelectPerAutoSelect<CR> 
+noremap <silent>  Tas :RefTermwinSelectPerAutoSelect<CR> 
+" MNEMONICS: T:termwin in caps to avoid Vim `t` cmd, as:Auto-Select 
 
 " ==============================================================================
 "  --- Select a Reference Editwin
@@ -1976,12 +1978,14 @@ noremap <silent>  ast :RefTermwinSelectPerAutoSelect<CR>
 command! -count=0      RefEditwinLock :call                Select_ref_editwin_per_lock({
 \ 'window_identifier_from_count_prefix' : <count>
 \})
-nnoremap <silent> lee :<C-U> call                          Select_ref_editwin_per_lock({
+nnoremap <silent> Els :<C-U> call                          Select_ref_editwin_per_lock({
 \ 'window_identifier_from_count_prefix' : v:count
 \})<CR>
+" MNEMONICS: E:Editwin in caps to avoid Vim `e` cmd, ls:Lock-Select
 
 command!               RefEditwinSelectPerAutoSelect :call Select_ref_editwin_per_auto_selection() 
-noremap <silent>  ase :RefEditwinSelectPerAutoSelect<CR> 
+noremap <silent>  Eas :RefEditwinSelectPerAutoSelect<CR> 
+" MNEMONICS: E:Editwin in caps to avoid Vim `e` cmd, as:Auto-Select
 
 " ==============================================================================
 function! This_filepath_screen_for_texting(rcvd_hash) 
@@ -2143,7 +2147,7 @@ command! -count=0 -nargs=* TextExArgsRun2RefTermwin :call Texter(<count>, {
 "      g:textwins_termwin_cmd_string_default.
 "   3) Effecting such a key sequence in Vim8 VimL is problematic, and 
 "      currently outside the scope of this plugin.
-
+"
 " ------------------------------------------------------------------------------
 " --- :TextCR2RefTermwin Text Carriage Return
 
@@ -2278,13 +2282,14 @@ command! -count=0 -nargs=* TextKillJob2RefTermwin    :call Texter(<count>, {
 \ 'create_ref_wintype_if_none_exists_is_wanted' : 'N',
 \})
 
-nnoremap <silent> ktj   :<C-U> call Texter(v:count, { 
+nnoremap <silent> Ktj   :<C-U> call Texter(v:count, { 
 \ 'string'              : "\\<C-W\>\\<C-C\>",
 \ 'create_ref_wintype_if_none_exists_is_wanted' : 'N',
 \})<CR>
-" MNEMONICS: k:Kill, t:Terminal, j:Job
 " If the term instantiated w/ the ++close option, vim closes the term window 
 " & returns to the cmd invocation window.
+" MNEMONICS: K:Kill NOT 'k' which collides w/ map k cmd, t:Terminal, j:Job
+"             caps also represents the significance of KILLING a TErminal
 
 
 " ==============================================================================
@@ -2522,12 +2527,6 @@ vnoremap <silent> tfr  :<C-U>          call Texter(v:count, {
 "  NOTE-DOC: for each of the normal/visual map pairs below, THE ONLY 
 "  DIFFERENCE is that the visual map run a "vy yank command whereas the 
 "  normal map uses the yank register @0 value at the time of invocation.
-"
-"  NOTE-DOC: for filepath run commands, there is screening for file 
-"  readability and executability.  This does not occur for strings
-"  entered free-form in the Vim Ex Line, as a string can identify 
-"  a file anywhere in the filesytem.  A deeper implementation could use 
-"  $CDPATH, currently out-of-scope for this plugin.
 
 "  NOTE-DOC-VIM: for normal-mode yanked text, use @0 rather than @" b/c the 
 "  latter is subject to clobber, per Drew Neil at
@@ -2700,13 +2699,13 @@ command! RefSendwinSummary     :echo Ref_sendwin_summary()
 command! RefRecvwinSummary     :echo Ref_recvwin_summary() 
 
 command!                RefWindowsSummary       :echo Ref_windows_summary_line()
-nnoremap <silent> rws  :RefWindowsSummary<CR>
+nnoremap <silent> tws  :RefWindowsSummary<CR>
 
 command!                RefWindowsSummaryLines  :echo Ref_windows_summary_lines()
-nnoremap <silent> rwsl :RefWindowsSummaryLines<CR>
+nnoremap <silent> twsl :RefWindowsSummaryLines<CR>
 
 command!                RefWindowsSummaryShort  :echo Ref_windows_summary_short()
-nnoremap <silent> rwss :RefWindowsSummaryShort<CR>
+nnoremap <silent> twss :RefWindowsSummaryShort<CR>
 
 " ==============================================================================
 " --- Window GoTos
@@ -2739,10 +2738,26 @@ let Textwins_timer = timer_start(
 " //////////////////////////////////////////////////////////////////////////////
 let g:impl_textwins_is_loaded = 'Y'
 " //////////////////////////////////////////////////////////////////////////////
-" below of interest only during Textwins development
-if   g:impl_textwins_is_in_dev_mode == 'Y' 
+
+" ==============================================================================
+" DEVELOPMENT-MODE
+" ==============================================================================
+" Below code is NOT needed for released versions of textwins.vim, and is not
+" supported.
+
+function! textwins#mark_colors_this_file()
+" silent MarkClear ????
+
+  " color-mark key funcs via mark.vim
+  silent! execute g:mark_group_number_logic.'Mark Wintype_create'
+  silent! execute g:mark_group_number_logic.'Mark Window_identify_goto_text'
+  silent! execute g:mark_group_number_logic.'Mark Texter'
+  silent! execute g:mark_group_number_logic.'Mark Text_a_wintype'
+endfunction
+
+if   s:impl_textwins_is_in_dev_mode == 'Y' 
 \ && $USER                          == 'chas'
-   source $stw
+  call textwins#mark_colors_this_file()
 endif
 
 "                        __
