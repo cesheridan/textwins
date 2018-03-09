@@ -167,7 +167,6 @@ _SEE: [N] Args & AUTOCREATION documentation, further above_
 |  |:[N]Textyy2Ref**Send**win | [N]tyy**s** | [N]tyy**s** |[same] | 
 |  |:[N]Textyy2Ref**Recv**win | [N]tyy**r** | [N]tyy**r** |[same] | 
 
-[N] for self overridden by other.
 
 _SEE: [N] Args & AUTOCREATION documentation, further above_
 
@@ -179,6 +178,7 @@ In termwins, this enables copy of text from earlier shell interaction to the cur
 | :--- |  :--- | --- | --- | --- |
 | **:[N]Text{...}** |:[N]Text**Self**win | [N]t**se** | [N]t**se** | [N]t**se**|Text yank register or visual selection to **self** window, i.e. to the current window 
 
+[N] for self overridden by other.
 
 _SEE: [N] Args & AUTOCREATION documentation, further above_
 
@@ -347,7 +347,7 @@ There is also a 4TH WAY to select a reference wintype: move to another wintype w
 # [N], Faster Window ID, & the Statusline
 When using [N]-identification, rather than contextual identification from reference windows, the faster that a developer can identify windows within a multi-window tab, the faster the initation of texting, or _go_, to a window.
 
-As a number in a sequence from 1 to the last window in a tab, [N] is an absolute identification, unlike Vim's relative window identifiers hjkl, etc.  The developer needs to quickly know the number of each window in a tab.  _But in a complex window structure, Vim window numbering may be non-intuitive._
+As a number in a sequence from 1 to the last window in a tab, [N] is an absolute identification, unlike Vim's relative window identifiers `hjkl`, etc.  The developer needs to quickly know the number of each window in a tab.  _But in a complex window structure, Vim window numbering may be non-intuitive._
 
 To make [N]-identification faster, the most direct way is to locate every window's number in the same prominent location, e.g. in the bottom left of every window. That is the convention in _**streamline.vim**, recommended as a statusline for textwins.vim_, and visible in the demos on this page.
 
