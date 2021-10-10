@@ -26,7 +26,7 @@ In addition to the texting concept, _**textwins.vim commands and functions will 
 
 _sequence above: the editwin on far left receives texts from 3 successive termwins._
 
-## TEXTING & REFERENCE WINDOWS
+# TEXTING & REFERENCE WINDOWS
 Within a Vim tab of at least one editing window and one terminal window, there is one text window and one terminal window _**selected**_ to receive texts to its respective window type -- there is an editing window to which all editing and terminal windows can text, and a terminal window to which all editing and terminal windows can text.
 
 Among the peer windows, these are the REFERENCE WINTYPES -- the **REFERENCE EDITWIN** and the **REFERENCE TERMWIN**, or REFWINS/REFWINTYPES.
@@ -84,20 +84,21 @@ The DEFINITIONS section towards the end of this page summarizes the nomenclature
 
 These **complete execution in the new termwin.**
 
-| FORM | :Ex Command |  nmap | Description | 
-| :--- |  :--- | --- | --- | --- |
-| **:TermwinCreate{}** |:[N]TermwinCreate  |**[N]tcr** | **Create Term**win in a new window w/ location per **g:textwins_window_creation_cmd_string_default,** or in an existing window per **[N]**, a window# or id|
-|  |:TermwinCreate**Selfwin**  |tc**s**  |   **Create Term**win in **self**win, i.e. in the current window |
-|  |:TermwinCreate**Vertical**          |tc**v**  |   **Create Term**win in new vertical window|
-|  |:TermwinCreate**ImmediateLeft**     |tc**il**  | [same, in location specified]  |
-|  |:TermwinCreate**FarLeft**           |tc**fl**  | [same]  |
-|  |:TermwinCreate**ImmediateRight**    |tc**ir**  |  [same] |
-|  |:TermwinCreate**FarRight**          |tc**fr**  |  [same] |
-|  |:TermwinCreate**Horizontal**        |tc**h**  |  [same] |
-|  |:TermwinCreate**ImmediatelyAbove**  |tc**ia**  |  [same] |
-|  |:TermwinCreate**Top**               |tc**t**  |  [same] |
-|  |:TermwinCreate**ImmediatelyBelow**  |tc**ib**  |  [same] |
-|  |:TermwinCreate**Bottom**            |tc**b**  |    [same]|
+| FORM | :Ex Command   | nmap | Description |
+| :--- |  :----------- |:---- |:----------- |
+| TermwinCreate{}** |:[N]TermwinCreate  |**[N]tcr** | **Create Term**win in a new window w/ location per **g:textwins_window_creation_cmd_string_default,** or in an existing window per **[N]**, a window# or id|
+| TermwinCreate**Selfwin**  |tc**s**  |   **Create Term**win in **self**win, i.e. in the current window |
+| TermwinCreate**Vertical**          |tc**v**  |   **Create Term**win in new vertical window|
+| TermwinCreate**ImmediateLeft**     |tc**il**  | [same, in location specified]  |
+| TermwinCreate**FarLeft**           |tc**fl**  | [same]  |
+| TermwinCreate**ImmediateRight**    |tc**ir**  |  [same] |
+| TermwinCreate**FarRight**          |tc**fr**  |  [same] |
+| TermwinCreate**Horizontal**        |tc**h**  |  [same] |
+| TermwinCreate**ImmediatelyAbove**  |tc**ia**  |  [same] |
+| TermwinCreate**Top**               |tc**t**  |  [same] |
+| TermwinCreate**ImmediatelyBelow**  |tc**ib**  |  [same] |
+| TermwinCreate**Bottom**            |tc**b**  |    [same]|
+
 
 **Overridable defaults** in termwin creation are listed in 'GLOBAL VARS' further below.  On a per-command basis, these can be overridden via 'rcvd_hash' in calls to function **Wintype_create(count_prefix, rcvd_hash)**,  invoked from all termwin create commands. 
 
@@ -105,7 +106,7 @@ Note that if a session creates a large number of Vim terminals, approximately 60
 
 ## Motion
 | FORM | :Ex Command |  nmap  |  Description |
-| :--- |  :--- | ---  |--- |
+| :--- |  :--- | ---  |:--- |
 | **:GoRef{....}win** |:GoRef**Term**win  | g**rt**  |Go to **Reference Term**win| 
 |  |:GoRef**Edit**win  | g**re**  |Go to **Reference Edit**win| 
 |  |:GoRef**Send**win  | g**rs**  |Go to **Reference Send**win|  
@@ -147,7 +148,7 @@ This is also **conditioned on g:extwins_create_ref_wintype_if_none_exists_is_wan
 
 #### Text Copied Text to Reference Windows
 | FORM | :Ex Command |  nmap | vmap | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--- | --- | --- |:--- |
 | **:[N]Text{}2Ref{....}win** |:[N]Text2Ref**Term**win | [N]t**rt** | [N]t**rt** |Text yank register or visual selection | 
 |  |:[N]Text2Ref**Edit**win | [N]t**re** | [N]t**re** |[same] | 
 |  |:[N]Text2Ref**Send**win | [N]t**rs** | [N]t**rs** |[same] | 
@@ -161,7 +162,7 @@ _SEE: [N] Args & AUTOCREATION documentation, further above_
 
 #### Text Current Line
 | FORM | :Ex Command |  nmap |  vmap | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--- | --- | --- | :--- |
 | **:[N]Textyy2Ref{....}win** |:[N]Textyy2Ref**Term**win | [N]tyy**t**  | [N]tyy**t** |Text current line | 
 |  |:[N]Textyy2Ref**Edit**win | [N]tyy**e** | [N]tyy**e** |[same] | 
 |  |:[N]Textyy2Ref**Send**win | [N]tyy**s** | [N]tyy**s** |[same] | 
@@ -175,8 +176,8 @@ _SEE: [N] Args & AUTOCREATION documentation, further above_
 In termwins, this enables copy of text from earlier shell interaction to the current command line in the same termwin.
 
 | FORM | :Ex Command |  nmap | vmap | tmap| Description |
-| :--- |  :--- | --- | --- | --- |
-| **:[N]Text{...}** |:[N]Text**Self**win | [N]t**se** | [N]t**se** | [N]t**se**|Text yank register or visual selection to **self** window, i.e. to the current window 
+| :--- |  :--- | --- | --- | --- | :--- |
+| **:[N] --- |Text{...}** |:[N]Text**Self**win | [N]t**se** | [N]t**se** | [N]t**se**|Text yank register or visual selection to **self** window, i.e. to the current window 
 
 [N] for self overridden by other.
 
@@ -187,7 +188,7 @@ _SEE: [N] Args & AUTOCREATION documentation, further above_
 Texting of the filepath, as well as its sourcing and execution.
 
 | FORM | :Ex Command |  nmap  |  vmap | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--- | --- | --- | :--- |
 | **:[N]TextFilepath{}2Ref{....}win** |:[N]TextFilepath2Ref**Term**win | [N]tf**rt** | [N]tf**rt** |Text **Filepath** of buffer of current editwin 
 |  |:[N]TextFilepath2Ref**Edit**win | [N]tf**re**| [N]tf**re**| [same]  
 |  |:[N]TextFilepath2Ref**Send**win | [N]tf**rs**| [N]tf**rs** |[same]  
@@ -200,7 +201,7 @@ Texting of the filepath, as well as its sourcing and execution.
 Simple but used often-enough to include.  Implementation can be a prototype for locally-defined commands in the _textwins.vim_ framework.
 
 | FORM | :Ex Command |  nmap | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :------ | --- | :--- |
 | **:[N]TextMake2Ref{....}win** |:[N]TextMake2Ref**Term**win | [N]t**ma** |Text & run **make** cmd | 
 
 _SEE: [N] Args & AUTOCREATION documentation, further above_
@@ -210,7 +211,7 @@ _SEE: [N] Args & AUTOCREATION documentation, further above_
 Send free-form text to textwins.
 
 | FORM | :Ex Command | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--------- | :------ |
 | **:[N]TextExArgs{}2Ref{....}win** |:[N]TextExArgs2Ref**Term**win |Text **Ex Line** Args  |  
 |  |:[N]TextExArgs2Ref**Edit**win |[same] |
 |  |:[N]TextExArgs2Ref**Send**win | [same]|  
@@ -228,7 +229,7 @@ _SEE: [N] & AUTOCREATION documentation, further above_
 Summary commands for **a 'read' on reference window state** in the current tab.
 
 | :Ex Command |  nmap  |  Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :------ | :------ |
 | :RefWindows**Summary** | tw**s**   |Win#-Buf#-Wid Data for each refwin, in 1 line, **output to Ex Line** | 
 ||<strike>rws</strike>| rws renamed to `tws` in rel 1.1.0 | 
 | :RefWindows**SummaryLines** | tw**sl**   |Win#-Buf#-Wid Data for each refwin, in 4 lines, **output to Ex Line** | 
@@ -243,7 +244,7 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 **SEE:** _'3 WAYS TO SELECT REFERENCE WINTYPES'_ further below.
 
 | FORM| :Ex Command  |  nmap | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--- | --- | :------ |
 |**:{N}Ref{....}winLock**| :{N}Ref**Term**winLock |[N]**T**ls| **Term**win: **L**ock-**S**elect window# or id 'N' as the reference termwin, default to current window when 'N' not specified| 
 |||<strike>[N]ltt</strike>| ltt renamed to `Tls` in rel 1.1.0 | 
 || :{N}Ref**Edit**winLock |[N]**E**ls|   **Edit**win: **L**ock-**S**elect window# or id 'N' as the reference editwin, default to current window when 'N' not specified|   
@@ -258,7 +259,7 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 'clean-up' a termwin command line before texting commands to it.  Accordingly, these commands end by returning to the originating window. They do _**not auto-create**_ termwins.
 
 | FORM | :Ex Command |  nmap  | Description |
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--- | --- | :------ |
 | **:[N]Text{..}2Ref{....}win** |:[N]Text**CR**2Ref**Term**win  |t**CR**  |  Text a **Carriage Return** | 
 |  |:[N]Text**SP**2Ref**Term**win  |t**SP**    |Text a **SPace** Char | 
 |  |:[N]Text**CC**2Ref**Term**win  |t**CC**    |Text **Cntl-C** | 
@@ -270,7 +271,7 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 :quit of a Vim8 :terminal prompts for confirmation.  **termwin quits use :quit! to bypass confirmation**.
 
 | FORM | :Ex Command |  nmap  |  Description | 
-| :--- |  :--- | --- | --- | --- |
+| :--- |  :--- | --- | :------ |
 | **:[N]Quit{...}{....}win{}** |:[N]Quit**RefTerm**win  |[N]q**tt**  |   **:quit!** reference termwin, or the one specified in N, a window# or id | 
 | **:[N]Text{}2RefTermwin** |:[N]Text**KillJob**2RefTermwin  |**Ktj**  |   **Kill terminal Job**|
 |||<strike>ktj</strike>| ktj renamed to `Ktj` in rel 1.1.0 | 
