@@ -20,7 +20,7 @@ The Vim8 introduction of :terminal implies the **use case of pasting text from a
 
 This is the base for the concept of editing and terminal **windows that text to each other as peers**.  
 
-_textwins.vim_ offers the developer navigation through this dynamic network of text windows, making it just as easy to text from a terminal window to an editing window as it is to text from an editing window to a terminal.
+_textwins.vim_ offers the developer navigation through the dynamic network of text windows, making it just as easy to text from a terminal window to an editing window as it is to text from an editing window to a terminal.
 
 In addition to the texting concept, _**textwins.vim commands and functions will interest developers who want to make more effective use of Vim terminals**_, especially when coupled with _**tabwins.vim**_, as exemplified in _**txtmux.vim**._
 
@@ -146,7 +146,8 @@ This scenario is similar to 'AUTOCREATION of Wintype' except here invocation omi
 This is also **conditioned on g:extwins_create_ref_wintype_if_none_exists_is_wanted = 'Y'**
 
 
-#### Text Copied Text to Reference Windows
+
+### Text Copied Text to Reference Windows
 | FORM | :Ex Command |  nmap | vmap | Description |
 | :--- |  :--- | --- | --- |:--- |
 | **:[N]Text{}2Ref{....}win** |:[N]Text2Ref**Term**win | [N]t**rt** | [N]t**rt** |Text yank register or visual selection | 
@@ -160,7 +161,7 @@ This is also **conditioned on g:extwins_create_ref_wintype_if_none_exists_is_wan
 _SEE: [N] Args & AUTOCREATION documentation, further above_
 
 
-#### Text Current Line
+### Text Current Line
 | FORM | :Ex Command |  nmap |  vmap | Description |
 | :--- |  :--- | --- | --- | :--- |
 | **:[N]Textyy2Ref{....}win** |:[N]Textyy2Ref**Term**win | [N]tyy**t**  | [N]tyy**t** |Text current line | 
@@ -172,19 +173,19 @@ _SEE: [N] Args & AUTOCREATION documentation, further above_
 _SEE: [N] Args & AUTOCREATION documentation, further above_
 
 
-#### Text Copied Text to Selfwin
+### Text Copied Text to Selfwin
 In termwins, this enables copy of text from earlier shell interaction to the current command line in the same termwin.
 
 | FORM | :Ex Command |  nmap | vmap | tmap| Description |
-| :--- |  :--- | --- | --- | --- | :--- |
-| **:[N] --- |Text{...}** |:[N]Text**Self**win | [N]t**se** | [N]t**se** | [N]t**se**|Text yank register or visual selection to **self** window, i.e. to the current window 
+| :--- |  :--- | :--- | :--- | :--- | :--- |
+| **:[N]** --- |**Text{...}** |:[N]Text**Self**win | [N]t**se** | [N]t**se** | [N]t**se**|Text yank register or visual selection to **self** window, i.e. to the current window 
 
 [N] for self overridden by other.
 
 _SEE: [N] Args & AUTOCREATION documentation, further above_
 
 
-#### Text Filepath of Current Editwin to Reference Windows
+### Text Filepath of Current Editwin to Reference Windows
 Texting of the filepath, as well as its sourcing and execution.
 
 | FORM | :Ex Command |  nmap  |  vmap | Description |
@@ -197,8 +198,9 @@ Texting of the filepath, as well as its sourcing and execution.
 |  |:[N]TextFilepath**Source**2Ref**Term**win | [N]tf**s**| [N]tf**s**|Text & **`source` Filepath** of buffer of current editwin 
 |  |:[N]TextFilepath**Run**2Ref**Term**win | [N]tf**r**| [N]tf**r**|Text & **Run Filepath** of buffer of current editwin 
 
-#### Text `make` to Termwin
-Simple but used often-enough to include.  Implementation can be a prototype for locally-defined commands in the _textwins.vim_ framework.
+### Text `make` to Termwin
+Simple but used often-enough to include.  
+Implementation can be a prototype for locally-defined commands in the _textwins.vim_ framework.
 
 | FORM | :Ex Command |  nmap | Description |
 | :--- |  :------ | --- | :--- |
@@ -219,6 +221,7 @@ Send free-form text to textwins.
 |  |:[N]TextExArgs**Run**2Ref**Term**win |Text & **Run Ex Line Args** | 
 
 _SEE: [N] & AUTOCREATION documentation, further above_
+
 
 
 ## Queries on Reference Windows & Globals
@@ -256,7 +259,9 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 
 
 ## Termwin Control 
-'clean-up' a termwin command line before texting commands to it.  Accordingly, these commands end by returning to the originating window. They do _**not auto-create**_ termwins.
+'clean-up' a termwin command line before texting commands to it.  
+Accordingly, these commands end by returning to the originating window. 
+They do _**not auto-create**_ termwins.
 
 | FORM | :Ex Command |  nmap  | Description |
 | :--- |  :--- | --- | :------ |
@@ -264,11 +269,12 @@ Summary commands for **a 'read' on reference window state** in the current tab.
 |  |:[N]Text**SP**2Ref**Term**win  |t**SP**    |Text a **SPace** Char | 
 |  |:[N]Text**CC**2Ref**Term**win  |t**CC**    |Text **Cntl-C** | 
 |  |:[N]Text**CU**2Ref**Term**win  |t**CU**    |Text **Cntl-U**  to **delete chars to left** of cursor| 
-| **:[N]Text{}2{...}{....}win{}** |:[N]Text**Normal**2Ref**Term**win  |t**no**   |Text **NOrmal** mode to Ref termwin| 
-|  |:[N]Text**Job**2Ref**Term**win  |t**jo**   |Text **Terminal JOb** mode to Ref termwin| 
+| **:[N]Text{}2{...}{....}win{}** |:[N]Text**Normal**2Ref**Term**win  |t**no**   |Set  Ref **T**ermwin to **NOrmal** mode|
+|  |:[N]Text**Job**2Ref**Term**win  |t**jo**   | Set Ref termwin to **T**erminal **JO**b mode, ie to **INSERT**-mode** |
 
 ## Text Wintype Exit
-:quit of a Vim8 :terminal prompts for confirmation.  **termwin quits use :quit! to bypass confirmation**.
+:quit of a Vim8 :terminal prompts for confirmation.  
+**termwin quits use :quit! to bypass confirmation**.
 
 | FORM | :Ex Command |  nmap  |  Description | 
 | :--- |  :--- | --- | :------ |
